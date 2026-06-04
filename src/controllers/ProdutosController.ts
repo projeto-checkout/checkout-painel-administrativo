@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 
 class ProdutosController {
-    async adicionar() {
+    async adicionar(Req: Request, Res: Response) {
 
     }
 }
