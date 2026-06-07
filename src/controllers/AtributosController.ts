@@ -57,6 +57,17 @@ class AtributosController {
         }
     }
 
+    async buscarTodosAtributos(Req: Request, Res: Response) {
+        try {
+
+            const retorno = await AtributosServiceFactory.buscarTodos();
+
+            Res.status(200).json(retorno);
+        } catch ( err: any) {
+            Res.status(400).json({ error: err.message});
+        }
+    }
+
 }
 
 export default AtributosController;

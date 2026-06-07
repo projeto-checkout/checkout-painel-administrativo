@@ -44,6 +44,10 @@ class AtributosService {
         return await this._valoresAtributosRepository.editar(dados, id_valor_atributo);
     }
 
+    async buscarTodos() {
+        return await this._atributosRepository.buscarTodos();
+    }
+
 }
 
 export default AtributosService;
