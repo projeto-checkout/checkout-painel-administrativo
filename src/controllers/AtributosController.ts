@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { Adicionar, AdicionarValor, EditarAtributo } from "./schema/AtributosSchema";
+import { Adicionar, AdicionarValor, EditarAtributo, EditarValor } from "./schema/AtributosSchema";
 import { AtributosServiceFactory } from "../factories/AtributosFactory";
 
 class AtributosController {
@@ -37,15 +37,20 @@ class AtributosController {
             await EditarAtributo.validate(Req.body);
 
             const atributoEditado = await AtributosServiceFactory.editarAtributo(Req.body, Req.params.id);
-            Res.status(200).json({atributoEditado});
+            Res.status(200).json(atributoEditado);
 
         } catch (err:any){
             Res.status(400).json({ error: err.message});
         }
     }
 
-    async editarValorAtributo(Req: Request, Res: Response) {
+    async editarValorAtributo(Req: Request<{id: string}>, Res: Response) {
         try {
+
+            await EditarValor.validate(Req.body);
+
+            const valorAtributoEditado = await AtributosServiceFactory.editarValorAtributo(Req.body, Req.params.id);
+            Res.status(200).json(valorAtributoEditado);
 
         } catch (err:any){
             Res.status(400).json({ error: err.message});

@@ -15,6 +15,16 @@ class ValoresAtributosRepository {
             }
         })
     }
+
+    async editar(dados: any, id: string) {
+        return await PrismaFactory.valoresAtributos.update({
+            where: {
+                id
+            },
+            data: dados
+        })
+
+    }
 }
 
 export default ValoresAtributosRepository;
