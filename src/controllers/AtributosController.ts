@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { Adicionar, AdicionarValor } from "./schema/AtributosSchema";
+import { Adicionar, AdicionarValor, EditarAtributo } from "./schema/AtributosSchema";
 import { AtributosServiceFactory } from "../factories/AtributosFactory";
 
 class AtributosController {
@@ -29,6 +29,26 @@ class AtributosController {
             console.log(Req.body, Req.params.id)
         } catch(err: any) {
             Res.status(400).json({ error:  err.message });
+        }
+    }
+
+    async editarAtributo(Req: Request<{id: string}>, Res: Response) {
+        try {
+            await EditarAtributo.validate(Req.body);
+
+            const atributoEditado = await AtributosServiceFactory.editarAtributo(Req.body, Req.params.id);
+            Res.status(200).json({atributoEditado});
+
+        } catch (err:any){
+            Res.status(400).json({ error: err.message});
+        }
+    }
+
+    async editarValorAtributo(Req: Request, Res: Response) {
+        try {
+
+        } catch (err:any){
+            Res.status(400).json({ error: err.message});
         }
     }
 

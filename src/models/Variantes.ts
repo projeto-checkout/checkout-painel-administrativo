@@ -6,6 +6,6 @@ export interface Variantes {
     peso: number;
     volume: number;
     json_caracteristicas: any;
-    created_at: Date;
-    updated_at: Date;
+    created_at?: any;
+    updated_at?: any;
 }

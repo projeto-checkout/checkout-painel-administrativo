@@ -3,6 +3,6 @@ export interface FotosProdutos {
     id_variacao: string;
     url: string;
     principal: boolean;
-    created_at: Date;
-    updated_at: Date;
+    created_at?: any;
+    updated_at?: any;
 }
