@@ -9,4 +9,11 @@ export const Adicionar = object().shape({
     ).nullable()
 });
 
+export const AdicionarValor = object().shape({
+    valor: string().required("O nome do valor do atributo é obrigatório.")
+});
+
+
+
 export type IAdicionarAtributo = InferType<typeof Adicionar>; 
+export type IAdicionarValor = InferType<typeof AdicionarValor>; 
