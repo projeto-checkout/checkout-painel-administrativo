@@ -20,11 +20,19 @@ model ValoresAtributos {
   id          String   @id @default(uuid())
   id_atributo String
   valor       String
-  ativo Boolean? @default(true)
+  ativo Boolean @default(true)
   created_at  DateTime @default(now())
   updated_at  DateTime @updatedAt
 
   atributo    Atributos @relation(fields: [id_atributo], references: [id], onDelete: Cascade)
 
   @@map("valores_atributos")
+}
+
+model Categorias {
+  id String @id @default(uuid())
+  nome String
+  ativo Boolean @default(true)
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
 }

@@ -22,7 +22,11 @@ class AtributosRepository {
                 ativo: true // erro pois n rodei o migrate dev ainda, logo prisma client não identifica
             },
             include: {
-                valores_atributos: true
+                valores_atributos: {
+                    where: {
+                        ativo: true // erro pois n rodei o migrate dev ainda, logo prisma client não identifica
+                    },
+                }
             }
         })
     }
