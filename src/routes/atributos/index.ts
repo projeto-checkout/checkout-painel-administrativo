@@ -9,5 +9,7 @@ routes.post('/atributos/valor/:id', atributosController.adicionarValorAtributo);
 routes.patch('/atributos/:id', atributosController.editarAtributo);
 routes.patch('/atributos/valor/:id', atributosController.editarValorAtributo);
 routes.get('/atributos', atributosController.buscarTodosAtributos);
+routes.delete('/atributos/:id', atributosController.excluirAtributo);
+routes.delete('/atributos/valor/:id', atributosController.excluirValorAtributo);
 
 export default routes;

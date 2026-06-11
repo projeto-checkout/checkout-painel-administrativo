@@ -68,6 +68,28 @@ class AtributosController {
         }
     }
 
+    async excluirAtributo(Req: Request<{id: string}>, Res: Response) {
+        try {
+
+            const retorno = await AtributosServiceFactory.excluir(Req.params.id);
+
+            Res.status(200).json(retorno);
+        } catch ( err: any) {
+            Res.status(400).json({ error: err.message});
+        }
+    }
+
+    async excluirValorAtributo(Req: Request<{id: string}>, Res: Response) {
+        try {
+
+            const retorno = await AtributosServiceFactory.excluirValor(Req.params.id);
+
+            Res.status(200).json(retorno);
+        } catch ( err: any) {
+            Res.status(400).json({ error: err.message});
+        }
+    }
+
 }
 
 export default AtributosController;

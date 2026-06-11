@@ -18,8 +18,22 @@ class AtributosRepository {
 
     async buscarTodos() {
         return await PrismaFactory.atributos.findMany({
+            where: {
+                ativo: true // erro pois n rodei o migrate dev ainda, logo prisma client não identifica
+            },
             include: {
                 valores_atributos: true
+            }
+        })
+    }
+
+    async excluir(id: string) {
+        return await PrismaFactory.atributos.update({
+            where: {
+                id
+            },
+            data: {
+                ativo: false // erro pois n rodei o migrate dev ainda, logo prisma client não identifica
             }
         })
     }

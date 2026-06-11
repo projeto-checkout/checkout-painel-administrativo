@@ -25,6 +25,17 @@ class ValoresAtributosRepository {
         })
 
     }
+
+    async excluir(id: string) {
+        return await PrismaFactory.atributos.update({
+            where: {
+                id
+            },
+            data: {
+                ativo: false // erro pois n rodei o migrate dev ainda, logo prisma client não identifica
+            }
+        })
+    }
 }
 
 export default ValoresAtributosRepository;
